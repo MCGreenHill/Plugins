@@ -1,238 +1,45 @@
 package net.project.skycoinsystem.data;
 
 import net.milkbowl.vault.economy.Economy;
-import net.milkbowl.vault.economy.EconomyResponse;
-import net.project.api.ProjectPlayer;
-import net.project.api.entities.PlayerEntity;
-import org.bukkit.OfflinePlayer;
+import net.project.skycoinsystem.SkyCoinSystem;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.RegisteredServiceProvider;
+import org.bukkit.plugin.ServicePriority;
 
-import java.util.List;
+public class Vault {
+    private static VaultEconomy econ = null;
 
-public class Vault implements Economy {
-
-    @Override
-    public boolean isEnabled() {
-        return false;
+    public static boolean setupVault() {
+        if (SkyCoinSystem.getPlugin().getServer().getPluginManager().getPlugin("Vault") == null) {
+            return false;
+        } else {
+            Bukkit.getServicesManager().register(Economy.class, econ, SkyCoinSystem.getPlugin(), ServicePriority.Normal);
+            return econ != null;
+        }
     }
 
-    @Override
-    public String getName() {
-        return null;
+    public static boolean setupEconomy() {
+        if (SkyCoinSystem.getPlugin().getServer().getPluginManager().getPlugin("Vault") == null) {
+            return false;
+        }
+        RegisteredServiceProvider<VaultEconomy> rsp = SkyCoinSystem.getPlugin().getServer().getServicesManager().getRegistration(VaultEconomy.class);
+        if (rsp == null) {
+            return false;
+        }
+        econ = rsp.getProvider();
+        return econ != null;
     }
 
-    @Override
-    public boolean hasBankSupport() {
-        return false;
+    public static double getBalance(Player player) {
+        return econ.getBalance(player);
     }
 
-    @Override
-    public int fractionalDigits() {
-        return 0;
+    public static void addMoney(Player player, double amount) {
+        econ.depositPlayer(player, amount);
     }
 
-    @Override
-    public String format(double amount) {
-        return null;
-    }
-
-    @Override
-    public String currencyNamePlural() {
-        return null;
-    }
-
-    @Override
-    public String currencyNameSingular() {
-        return null;
-    }
-
-    @Override
-    public boolean hasAccount(String playerName) {
-        return false;
-    }
-
-    @Override
-    public boolean hasAccount(OfflinePlayer player) {
-        return false;
-    }
-
-    @Override
-    public boolean hasAccount(String playerName, String worldName) {
-        return false;
-    }
-
-    @Override
-    public boolean hasAccount(OfflinePlayer player, String worldName) {
-        return false;
-    }
-
-    @Override
-    public double getBalance(String playerName) {
-        return 0;
-    }
-
-    @Override
-    public double getBalance(OfflinePlayer player) {
-        ProjectPlayer projectPlayer = new ProjectPlayer((Player) player);
-        PlayerEntity playerEntity = projectPlayer.getEntity();
-        return playerEntity.getSkyCoins();
-    }
-
-    @Override
-    public double getBalance(String playerName, String world) {
-        return 0;
-    }
-
-    @Override
-    public double getBalance(OfflinePlayer player, String world) {
-        return 0;
-    }
-
-    @Override
-    public boolean has(String playerName, double amount) {
-        return false;
-    }
-
-    @Override
-    public boolean has(OfflinePlayer player, double amount) {
-        return false;
-    }
-
-    @Override
-    public boolean has(String playerName, String worldName, double amount) {
-        return false;
-    }
-
-    @Override
-    public boolean has(OfflinePlayer player, String worldName, double amount) {
-        return false;
-    }
-
-    @Override
-    public EconomyResponse withdrawPlayer(String playerName, double amount) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse withdrawPlayer(OfflinePlayer player, double amount) {
-        ProjectPlayer projectPlayer = new ProjectPlayer((Player) player);
-        PlayerEntity playerEntity = projectPlayer.getEntity();
-        double balance = playerEntity.getSkyCoins() - amount;
-        playerEntity.setSkyCoins(balance);
-        return new EconomyResponse(amount, balance, EconomyResponse.ResponseType.SUCCESS, "");
-    }
-
-    @Override
-    public EconomyResponse withdrawPlayer(String playerName, String worldName, double amount) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse withdrawPlayer(OfflinePlayer player, String worldName, double amount) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse depositPlayer(String playerName, double amount) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse depositPlayer(OfflinePlayer player, double amount) {
-        ProjectPlayer projectPlayer = new ProjectPlayer((Player) player);
-        PlayerEntity playerEntity = projectPlayer.getEntity();
-        double balance = playerEntity.getSkyCoins() + amount;
-        playerEntity.setSkyCoins(balance);
-        return new EconomyResponse(amount, balance, EconomyResponse.ResponseType.SUCCESS, "");
-    }
-
-    @Override
-    public EconomyResponse depositPlayer(String playerName, String worldName, double amount) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse depositPlayer(OfflinePlayer player, String worldName, double amount) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse createBank(String name, String player) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse createBank(String name, OfflinePlayer player) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse deleteBank(String name) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse bankBalance(String name) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse bankHas(String name, double amount) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse bankWithdraw(String name, double amount) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse bankDeposit(String name, double amount) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse isBankOwner(String name, String playerName) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse isBankOwner(String name, OfflinePlayer player) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse isBankMember(String name, String playerName) {
-        return null;
-    }
-
-    @Override
-    public EconomyResponse isBankMember(String name, OfflinePlayer player) {
-        return null;
-    }
-
-    @Override
-    public List<String> getBanks() {
-        return null;
-    }
-
-    @Override
-    public boolean createPlayerAccount(String playerName) {
-        return false;
-    }
-
-    @Override
-    public boolean createPlayerAccount(OfflinePlayer player) {
-        return false;
-    }
-
-    @Override
-    public boolean createPlayerAccount(String playerName, String worldName) {
-        return false;
-    }
-
-    @Override
-    public boolean createPlayerAccount(OfflinePlayer player, String worldName) {
-        return false;
+    public static void remMoney(Player player, double amount) {
+        econ.withdrawPlayer(player, amount);
     }
 }
