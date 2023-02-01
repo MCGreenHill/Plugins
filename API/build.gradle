@@ -1,0 +1,9 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    compileOnlyApi("io.papermc.paper:paper-api:1.19.3-R0.1-SNAPSHOT")
+    api("org.postgresql:postgresql:42.5.1")
+    api("org.hibernate:hibernate-core:6.1.6.Final")
+}
