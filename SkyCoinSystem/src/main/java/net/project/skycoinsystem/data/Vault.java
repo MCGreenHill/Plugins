@@ -8,38 +8,36 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.ServicePriority;
 
 public class Vault {
-    private static VaultEconomy econ = null;
+    private static VaultEconomy econ;
 
     public static boolean setupVault() {
         if (SkyCoinSystem.getPlugin().getServer().getPluginManager().getPlugin("Vault") == null) {
             return false;
         } else {
+            econ = SkyCoinSystem.getEconomyImplementer();
             Bukkit.getServicesManager().register(Economy.class, econ, SkyCoinSystem.getPlugin(), ServicePriority.Normal);
             return econ != null;
         }
     }
 
     public static boolean setupEconomy() {
-        if (SkyCoinSystem.getPlugin().getServer().getPluginManager().getPlugin("Vault") == null) {
-            return false;
-        }
-        RegisteredServiceProvider<VaultEconomy> rsp = SkyCoinSystem.getPlugin().getServer().getServicesManager().getRegistration(VaultEconomy.class);
+        RegisteredServiceProvider<Economy> rsp = SkyCoinSystem.getPlugin().getServer().getServicesManager().getRegistration(Economy.class);
         if (rsp == null) {
             return false;
         }
-        econ = rsp.getProvider();
-        return econ != null;
+        SkyCoinSystem.setEconomy(rsp.getProvider());
+        return SkyCoinSystem.getEconomy() != null;
     }
 
     public static double getBalance(Player player) {
-        return econ.getBalance(player);
+        return SkyCoinSystem.getEconomy().getBalance(player);
     }
 
     public static void addMoney(Player player, double amount) {
-        econ.depositPlayer(player, amount);
+        SkyCoinSystem.getEconomy().depositPlayer(player, amount);
     }
 
     public static void remMoney(Player player, double amount) {
-        econ.withdrawPlayer(player, amount);
+        SkyCoinSystem.getEconomy().withdrawPlayer(player, amount);
     }
 }
