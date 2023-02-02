@@ -3,9 +3,11 @@ package net.project.skycoinsystem.data;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.economy.EconomyResponse;
 import net.project.api.ProjectPlayer;
+import net.project.api.ProjectPlugin;
 import net.project.api.entities.PlayerEntity;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
+import org.hibernate.Session;
 
 import java.util.List;
 
@@ -115,10 +117,15 @@ public class VaultEconomy implements Economy {
 
     @Override
     public EconomyResponse withdrawPlayer(OfflinePlayer player, double amount) {
+        Session session = ProjectPlugin.getSessionFactory().openSession();
         ProjectPlayer projectPlayer = new ProjectPlayer((Player) player);
         PlayerEntity playerEntity = projectPlayer.getEntity();
         double balance = playerEntity.getSkyCoins() - amount;
         playerEntity.setSkyCoins(balance);
+        session.beginTransaction();
+        session.saveOrUpdate(playerEntity);
+        session.getTransaction().commit();
+        session.close();
         return new EconomyResponse(amount, balance, EconomyResponse.ResponseType.SUCCESS, "");
     }
 
@@ -139,10 +146,15 @@ public class VaultEconomy implements Economy {
 
     @Override
     public EconomyResponse depositPlayer(OfflinePlayer player, double amount) {
+        Session session = ProjectPlugin.getSessionFactory().openSession();
         ProjectPlayer projectPlayer = new ProjectPlayer((Player) player);
         PlayerEntity playerEntity = projectPlayer.getEntity();
         double balance = playerEntity.getSkyCoins() + amount;
         playerEntity.setSkyCoins(balance);
+        session.beginTransaction();
+        session.saveOrUpdate(playerEntity);
+        session.getTransaction().commit();
+        session.close();
         return new EconomyResponse(amount, balance, EconomyResponse.ResponseType.SUCCESS, "");
     }
 
