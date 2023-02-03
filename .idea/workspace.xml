@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba295421-0145-40a7-a2ff-60b61177cdcf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/src/main/java/net/project/api/ProjectPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/src/main/java/net/project/api/ProjectPlugin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/src/main/java/net/project/api/entities/PlayerEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/src/main/resources/messages_de.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/src/main/resources/messages_en.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Base/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Base/src/main/java/net/project/base/Base.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Base/src/main/java/net/project/base/commands/Lang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Base/src/main/resources/messages_de.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Base/src/main/resources/messages_en.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkyCoinSystem/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkyCoinSystem/src/main/java/net/project/skycoinsystem/SkyCoinSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SkyCoinSystem/src/main/java/net/project/skycoinsystem/data/Vault.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-    </list>
+    <list default="true" id="ba295421-0145-40a7-a2ff-60b61177cdcf" name="Changes" comment="added other formatter" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +35,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -72,13 +53,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle API:build" />
@@ -144,9 +125,87 @@
       <option name="presentableId" value="Default" />
       <updated>1675275080351</updated>
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1675279517353</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675279517353</updated>
+    </task>
+    <task id="LOCAL-00002" summary="save">
+      <created>1675283479947</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675283479947</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added balance command">
+      <created>1675366786317</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675366786317</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added pay command">
+      <created>1675368952615</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675368952615</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added set command">
+      <created>1675450806577</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675450806577</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added parser to disallow amount less then 0.01">
+      <created>1675451372046</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675451372046</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fixed player search autocomplete">
+      <created>1675456698915</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675456698915</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added formatter">
+      <created>1675457510669</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1675457510669</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added other formatter">
+      <created>1675457905412</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1675457905412</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="save" />
+    <MESSAGE value="added balance command" />
+    <MESSAGE value="added pay command" />
+    <MESSAGE value="added set command" />
+    <MESSAGE value="added parser to disallow amount less then 0.01" />
+    <MESSAGE value="fixed player search autocomplete" />
+    <MESSAGE value="added formatter" />
+    <MESSAGE value="added other formatter" />
+    <option name="LAST_COMMIT_MESSAGE" value="added other formatter" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
