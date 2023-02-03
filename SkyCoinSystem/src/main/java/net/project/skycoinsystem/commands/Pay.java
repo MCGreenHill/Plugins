@@ -37,7 +37,13 @@ public class Pay implements CommandExecutor {
             sender.sendMessage(String.format(bundle.getString("command.pay.player.does.not.exist"), searchedPlayerName));
             return true;
         }
-        double amount = Double.parseDouble(args[1]);
+        double amount;
+        try {
+            amount = Double.parseDouble(args[1]);
+        } catch (Exception e) {
+            sender.sendMessage(bundle.getString("command.pay.amount.has.to.be.a.number"));
+            return true;
+        }
         if (amount <= 0) {
             sender.sendMessage(bundle.getString("command.pay.amount.less.then.null"));
             return true;

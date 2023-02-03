@@ -4,6 +4,7 @@ import net.milkbowl.vault.economy.Economy;
 import net.project.api.ProjectPlugin;
 import net.project.skycoinsystem.commands.Balance;
 import net.project.skycoinsystem.commands.Pay;
+import net.project.skycoinsystem.commands.Set;
 import net.project.skycoinsystem.data.Vault;
 import net.project.skycoinsystem.data.VaultEconomy;
 import org.bukkit.plugin.java.annotation.dependency.Dependency;
@@ -58,8 +59,10 @@ public final class SkyCoinSystem extends ProjectPlugin {
     public void registerCommands() {
         Balance balance = new Balance();
         Pay pay = new Pay();
+        Set set = new Set();
         Objects.requireNonNull(getCommand("balance")).setExecutor(balance);
         Objects.requireNonNull(getCommand("pay")).setExecutor(pay);
+        Objects.requireNonNull(getCommand("set")).setExecutor(set);
     }
 
 }
