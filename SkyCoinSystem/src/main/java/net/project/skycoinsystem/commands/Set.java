@@ -47,9 +47,9 @@ public class Set implements CommandExecutor {
         }
         Vault.remMoney(searchedPlayer, Vault.getBalance(searchedPlayer));
         Vault.addMoney(searchedPlayer, amount);
-        sender.sendMessage(String.format(bundle.getString("command.set.amount.set"), searchedPlayer.getName(), amount));
+        sender.sendMessage(String.format(bundle.getString("command.set.amount.set"), searchedPlayer.getName(), MoneyParser.formatNumber(amount)));
         if (bukkitPlayer != searchedPlayer) {
-            searchedPlayer.sendMessage(String.format(bundle.getString("command.set.other.player.amount.set.message"), amount));
+            searchedPlayer.sendMessage(String.format(bundle.getString("command.set.other.player.amount.set.message"), MoneyParser.formatNumber(amount)));
         }
         return true;
     }

@@ -3,6 +3,7 @@ package net.project.skycoinsystem.commands;
 import net.project.api.ProjectPlayer;
 import net.project.skycoinsystem.SkyCoinSystem;
 import net.project.skycoinsystem.data.Vault;
+import net.project.skycoinsystem.tools.MoneyParser;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -29,7 +30,7 @@ public class Balance implements CommandExecutor {
         ResourceBundle bundle = SkyCoinSystem.getMessagesBundle(playerLocale);
         if (args.length == 0) {
             double balance = Vault.getBalance(bukkitPlayer);
-            sender.sendMessage(String.format(bundle.getString("command.balance.own"), balance));
+            sender.sendMessage(String.format(bundle.getString("command.balance.own"), MoneyParser.formatNumber(balance)));
             return true;
         }
         String searchedPlayerName = args[0];
@@ -39,7 +40,7 @@ public class Balance implements CommandExecutor {
             return true;
         }
         double balance = Vault.getBalance(searchedPlayer);
-        sender.sendMessage(String.format(bundle.getString("command.balance.of.player"), searchedPlayer.getName(), balance));
+        sender.sendMessage(String.format(bundle.getString("command.balance.of.player"), searchedPlayer.getName(), MoneyParser.formatNumber(balance)));
         return true;
     }
 }

@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba295421-0145-40a7-a2ff-60b61177cdcf" name="Changes" comment="fixed player search autocomplete">
-      <change beforePath="$PROJECT_DIR$/SkyCoinSystem/src/main/java/net/project/skycoinsystem/commands/Balance.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkyCoinSystem/src/main/java/net/project/skycoinsystem/commands/Balance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SkyCoinSystem/src/main/java/net/project/skycoinsystem/tools/MoneyParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkyCoinSystem/src/main/java/net/project/skycoinsystem/tools/MoneyParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

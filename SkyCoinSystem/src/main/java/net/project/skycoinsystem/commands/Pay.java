@@ -51,13 +51,13 @@ public class Pay implements CommandExecutor {
         }
         double playerBalance = Vault.getBalance(bukkitPlayer);
         if (amount > playerBalance) {
-            sender.sendMessage(String.format(bundle.getString("command.pay.player.does.not.has.enough.money"), (playerBalance - amount) * -1));
+            sender.sendMessage(String.format(bundle.getString("command.pay.player.does.not.has.enough.money"), MoneyParser.formatNumber((playerBalance - amount) * -1)));
             return true;
         }
         Vault.remMoney(bukkitPlayer, amount);
-        sender.sendMessage(String.format(bundle.getString("command.pay.sent.money.to.player"), amount, searchedPlayer.getName()));
+        sender.sendMessage(String.format(bundle.getString("command.pay.sent.money.to.player"), MoneyParser.formatNumber(amount), searchedPlayer.getName()));
         Vault.addMoney(searchedPlayer, amount);
-        searchedPlayer.sendMessage(String.format(bundle.getString("command.pay.player.get.money.from.player"), amount, bukkitPlayer.getName()));
+        searchedPlayer.sendMessage(String.format(bundle.getString("command.pay.player.get.money.from.player"), MoneyParser.formatNumber(amount), bukkitPlayer.getName()));
         return true;
     }
 }
