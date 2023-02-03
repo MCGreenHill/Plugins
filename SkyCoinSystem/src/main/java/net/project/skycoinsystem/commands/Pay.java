@@ -3,6 +3,7 @@ package net.project.skycoinsystem.commands;
 import net.project.api.ProjectPlayer;
 import net.project.skycoinsystem.SkyCoinSystem;
 import net.project.skycoinsystem.data.Vault;
+import net.project.skycoinsystem.tools.MoneyParser;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -39,7 +40,7 @@ public class Pay implements CommandExecutor {
         }
         double amount;
         try {
-            amount = Double.parseDouble(args[1]);
+            amount = MoneyParser.doubleParser(Double.parseDouble(args[1]));
         } catch (Exception e) {
             sender.sendMessage(bundle.getString("command.pay.amount.has.to.be.a.number"));
             return true;
