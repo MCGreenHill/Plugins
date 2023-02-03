@@ -33,7 +33,7 @@ public class Pay implements CommandExecutor {
             return true;
         }
         String searchedPlayerName = args[0];
-        Player searchedPlayer = SkyCoinSystem.getPlugin().getServer().getPlayer(searchedPlayerName);
+        Player searchedPlayer = SkyCoinSystem.getPlugin().getServer().getPlayerExact(searchedPlayerName);
         if (searchedPlayer == null) {
             sender.sendMessage(String.format(bundle.getString("command.pay.player.does.not.exist"), searchedPlayerName));
             return true;
@@ -51,7 +51,7 @@ public class Pay implements CommandExecutor {
         }
         double playerBalance = Vault.getBalance(bukkitPlayer);
         if (amount > playerBalance) {
-            sender.sendMessage(String.format(bundle.getString("command.pay.player.does.not.has.enough.money"), playerBalance - amount));
+            sender.sendMessage(String.format(bundle.getString("command.pay.player.does.not.has.enough.money"), (playerBalance - amount) * -1));
             return true;
         }
         Vault.remMoney(bukkitPlayer, amount);

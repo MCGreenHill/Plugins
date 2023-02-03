@@ -33,7 +33,7 @@ public class Balance implements CommandExecutor {
             return true;
         }
         String searchedPlayerName = args[0];
-        Player searchedPlayer = SkyCoinSystem.getPlugin().getServer().getPlayer(searchedPlayerName);
+        Player searchedPlayer = SkyCoinSystem.getPlugin().getServer().getPlayerExact(searchedPlayerName);
         if (searchedPlayer == null) {
             sender.sendMessage(String.format(bundle.getString("command.balance.player.does.not.exist"), searchedPlayerName));
             return true;

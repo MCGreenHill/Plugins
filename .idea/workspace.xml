@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba295421-0145-40a7-a2ff-60b61177cdcf" name="Changes" comment="added set command">
-      <change afterPath="$PROJECT_DIR$/SkyCoinSystem/src/main/java/net/project/skycoinsystem/tools/MoneyParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyCoinSystem/src/main/java/net/project/skycoinsystem/commands/Pay.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkyCoinSystem/src/main/java/net/project/skycoinsystem/commands/Pay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SkyCoinSystem/src/main/java/net/project/skycoinsystem/commands/Set.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkyCoinSystem/src/main/java/net/project/skycoinsystem/commands/Set.java" afterDir="false" />
+    <list default="true" id="ba295421-0145-40a7-a2ff-60b61177cdcf" name="Changes" comment="fixed player search autocomplete">
+      <change beforePath="$PROJECT_DIR$/SkyCoinSystem/src/main/java/net/project/skycoinsystem/commands/Balance.java" beforeDir="false" afterPath="$PROJECT_DIR$/SkyCoinSystem/src/main/java/net/project/skycoinsystem/commands/Balance.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +162,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675450806577</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added parser to disallow amount less then 0.01">
+      <created>1675451372046</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675451372046</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fixed player search autocomplete">
+      <created>1675456698915</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675456698915</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -176,7 +187,9 @@
     <MESSAGE value="added balance command" />
     <MESSAGE value="added pay command" />
     <MESSAGE value="added set command" />
-    <option name="LAST_COMMIT_MESSAGE" value="added set command" />
+    <MESSAGE value="added parser to disallow amount less then 0.01" />
+    <MESSAGE value="fixed player search autocomplete" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed player search autocomplete" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
