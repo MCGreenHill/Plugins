@@ -1,6 +1,6 @@
 package net.project.skycoinsystem.tools;
 
-import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 public class MoneyParser {
     public static double doubleParser(double amount) {
@@ -8,6 +8,6 @@ public class MoneyParser {
     }
 
     public static String formatNumber(double amount) {
-        return new BigDecimal(amount).toPlainString();
+        return String.format("%.2f", amount);
     }
 }
