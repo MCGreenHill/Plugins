@@ -1,6 +1,6 @@
-package net.project.api;
+package net.gigaclub.api;
 
-import net.project.api.entities.PlayerEntity;
+import net.gigaclub.api.entities.PlayerEntity;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.hibernate.SessionFactory;

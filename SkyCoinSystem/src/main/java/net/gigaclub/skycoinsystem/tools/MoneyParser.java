@@ -1,6 +1,4 @@
-package net.project.skycoinsystem.tools;
-
-import java.text.DecimalFormat;
+package net.gigaclub.skycoinsystem.tools;
 
 public class MoneyParser {
     public static double doubleParser(double amount) {

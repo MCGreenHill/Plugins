@@ -1,7 +1,7 @@
-package net.project.base;
+package net.gigaclub.base;
 
-import net.project.api.ProjectPlugin;
-import net.project.base.commands.Lang;
+import net.gigaclub.api.ProjectPlugin;
+import net.gigaclub.base.commands.Lang;
 import org.bukkit.plugin.java.annotation.plugin.ApiVersion;
 import org.bukkit.plugin.java.annotation.plugin.Plugin;
 

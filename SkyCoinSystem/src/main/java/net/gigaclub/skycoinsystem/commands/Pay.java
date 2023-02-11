@@ -1,9 +1,9 @@
-package net.project.skycoinsystem.commands;
+package net.gigaclub.skycoinsystem.commands;
 
-import net.project.api.ProjectPlayer;
-import net.project.skycoinsystem.SkyCoinSystem;
-import net.project.skycoinsystem.data.Vault;
-import net.project.skycoinsystem.tools.MoneyParser;
+import net.gigaclub.api.ProjectPlayer;
+import net.gigaclub.skycoinsystem.SkyCoinSystem;
+import net.gigaclub.skycoinsystem.data.Vault;
+import net.gigaclub.skycoinsystem.tools.MoneyParser;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

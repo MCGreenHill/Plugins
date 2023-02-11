@@ -1,6 +1,6 @@
-package net.project.api;
+package net.gigaclub.api;
 
-import net.project.api.entities.PlayerEntity;
+import net.gigaclub.api.entities.PlayerEntity;
 import org.bukkit.entity.Player;
 import org.hibernate.Session;
 import org.hibernate.query.Query;

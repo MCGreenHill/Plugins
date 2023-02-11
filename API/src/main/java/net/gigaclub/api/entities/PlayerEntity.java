@@ -1,4 +1,4 @@
-package net.project.api.entities;
+package net.gigaclub.api.entities;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.NaturalId;
