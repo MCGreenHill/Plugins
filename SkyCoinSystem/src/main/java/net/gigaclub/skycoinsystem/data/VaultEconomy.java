@@ -1,10 +1,10 @@
-package net.project.skycoinsystem.data;
+package net.gigaclub.skycoinsystem.data;
 
+import net.gigaclub.api.ProjectPlayer;
+import net.gigaclub.api.ProjectPlugin;
+import net.gigaclub.api.entities.PlayerEntity;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.economy.EconomyResponse;
-import net.project.api.ProjectPlayer;
-import net.project.api.ProjectPlugin;
-import net.project.api.entities.PlayerEntity;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.hibernate.Session;

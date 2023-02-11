@@ -1,7 +1,7 @@
-package net.project.base.commands;
+package net.gigaclub.base.commands;
 
-import net.project.api.ProjectPlayer;
-import net.project.base.Base;
+import net.gigaclub.api.ProjectPlayer;
+import net.gigaclub.base.Base;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

@@ -1,7 +1,7 @@
-package net.project.skycoinsystem.data;
+package net.gigaclub.skycoinsystem.data;
 
+import net.gigaclub.skycoinsystem.SkyCoinSystem;
 import net.milkbowl.vault.economy.Economy;
-import net.project.skycoinsystem.SkyCoinSystem;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;

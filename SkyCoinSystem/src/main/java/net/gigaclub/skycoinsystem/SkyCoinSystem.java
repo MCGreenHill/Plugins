@@ -1,12 +1,12 @@
-package net.project.skycoinsystem;
+package net.gigaclub.skycoinsystem;
 
+import net.gigaclub.api.ProjectPlugin;
+import net.gigaclub.skycoinsystem.commands.Balance;
+import net.gigaclub.skycoinsystem.commands.Pay;
+import net.gigaclub.skycoinsystem.commands.Set;
+import net.gigaclub.skycoinsystem.data.Vault;
+import net.gigaclub.skycoinsystem.data.VaultEconomy;
 import net.milkbowl.vault.economy.Economy;
-import net.project.api.ProjectPlugin;
-import net.project.skycoinsystem.commands.Balance;
-import net.project.skycoinsystem.commands.Pay;
-import net.project.skycoinsystem.commands.Set;
-import net.project.skycoinsystem.data.Vault;
-import net.project.skycoinsystem.data.VaultEconomy;
 import org.bukkit.plugin.java.annotation.dependency.Dependency;
 import org.bukkit.plugin.java.annotation.plugin.ApiVersion;
 import org.bukkit.plugin.java.annotation.plugin.Plugin;
