@@ -1,0 +1,22 @@
+name: Gen
+version: '${version}'
+main: feier68.gen.Main
+api-version: 1.19
+prefix: Gen´s
+load: STARTUP
+authors: [ Feier68 ]
+description: Block Generator plugin
+
+commands:
+  placegen:
+    description: /placegen <Material>
+    permission: "gen.place"
+  removegen:
+    description: /removegen <X> <Y> <Z>
+    permission: "gen.remove"
+  genitem:
+    description: /genitem Block/List/Remove
+    permission: "gen.item"
+  reloadgen:
+    description: läde die gen list neu
+    permission: "gen.reload"
