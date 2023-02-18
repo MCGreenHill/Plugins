@@ -1,6 +1,9 @@
-package feier68.gen.Commands;
+package net.project.gen.Commands;
 
-import feier68.gen.Main;
+
+import de.unpixelt.locale.Translate;
+import net.project.api.ProjectPlayer;
+import net.project.gen.Main;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
@@ -9,7 +12,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.BlastingRecipe;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -18,22 +20,25 @@ import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class getSpawnGen implements CommandExecutor, TabCompleter {
     public static ItemStack GenPlaceEgg = new ItemStack(Material.BAT_SPAWN_EGG, 1);
     public static ItemStack GenRemoveEgg = new ItemStack(Material.CHICKEN_SPAWN_EGG, 1);
 
-    public static ItemStack createGenPlaceEgg(String material, int cooldown) {
+    public static ItemStack createGenPlaceEgg(String material, int cooldown, ResourceBundle bundle, Player player) {
         ItemStack item = new ItemStack(Material.BAT_SPAWN_EGG, 1);
         ItemMeta meta = item.getItemMeta();
-        Material.getMaterial(material,true);
-        meta.setDisplayName("gen name");
+        Material material1 = Material.matchMaterial(material);
+
+        meta.setDisplayName(bundle.getString("gen.command.genitem.name"));
         List<String> lore = new ArrayList<>();
-        lore.add(material + " Gen");
-        lore.add("right click to place the generator");
+        if (material1 != null) {
+            String itemname = Translate.getMaterial(player, material1);
+            lore.add(String.format(bundle.getString("gen.command.genitem.lore1"), itemname));
+        } else lore.add(String.format(bundle.getString("gen.command.genitem.lore1"), material));
+
+        lore.add(bundle.getString("gen.command.genitem.lore2"));
         meta.setLore(lore);
         meta.addEnchant(Enchantment.DURABILITY, 0, true);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -46,14 +51,13 @@ public class getSpawnGen implements CommandExecutor, TabCompleter {
         GenPlaceEgg = item;
         return item;
     }
-
-    public static ItemStack createGenRemoveEgg() {
+    public static ItemStack createGenRemoveEgg(ResourceBundle bundle) {
         ItemStack item = new ItemStack(Material.CHICKEN_SPAWN_EGG, 1);
         ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName("Remove Gen");
+        meta.setDisplayName(bundle.getString("gen.command.genitemremove.name"));
         List<String> lore = new ArrayList<>();
-        lore.add("Remove Gen");
-        lore.add("right click to Remove the generator");
+        lore.add(bundle.getString("gen.command.genitemremove.lore1"));
+        lore.add(bundle.getString("gen.command.genitemremove.lore2"));
         meta.setLore(lore);
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -73,9 +77,13 @@ public class getSpawnGen implements CommandExecutor, TabCompleter {
             return false;
         }
 
+        ProjectPlayer player1 = new ProjectPlayer(player);
+        Locale playerLocale = player1.getProjectLocale();
+        ResourceBundle bundle = Main.getMessagesBundle(playerLocale);
+
         switch (args[0].toLowerCase()) {
             case "block":
-                if(args.length == 1){
+                if (args.length == 1) {
                     player.sendMessage("zu wenig argumente");
                     return false;
                 }
@@ -91,7 +99,7 @@ public class getSpawnGen implements CommandExecutor, TabCompleter {
                         material = String.valueOf(Material.getMaterial(args[1].toUpperCase()));
                     } else return false;
 
-                    createGenPlaceEgg(material, 0);
+                    createGenPlaceEgg(material, 0, bundle, player);
                     ItemStack item = GenPlaceEgg;
                     if (!(player.getInventory().firstEmpty() <= -1)) {
                         int i = player.getInventory().firstEmpty();
@@ -115,7 +123,7 @@ public class getSpawnGen implements CommandExecutor, TabCompleter {
                             material = String.valueOf(Material.getMaterial(args[1].toUpperCase()));
                         } else return false;
 
-                        createGenPlaceEgg(material, cooldown);
+                        createGenPlaceEgg(material, cooldown, bundle, player);
                         ItemStack item = GenPlaceEgg;
                         if (!(player.getInventory().firstEmpty() <= -1)) {
                             int i = player.getInventory().firstEmpty();
@@ -127,7 +135,7 @@ public class getSpawnGen implements CommandExecutor, TabCompleter {
                     break;
                 }
             case "list":
-                if(args.length == 1){
+                if (args.length == 1) {
                     player.sendMessage("zu wenig argumente");
                     return false;
                 }
@@ -138,13 +146,13 @@ public class getSpawnGen implements CommandExecutor, TabCompleter {
 
                         if (args[1].toLowerCase().equals("stonelist")) {
                             material1 = "stoneList";
-                            createGenPlaceEgg(material1, 0);
+                            createGenPlaceEgg(material1, 0, bundle, player);
                             ItemStack item = GenPlaceEgg;
                             player.getInventory().setItem(i, item);
                             break;
                         } else if (args[1].toLowerCase().equals("woodlist")) {
                             material1 = "woodList";
-                            createGenPlaceEgg(material1, 0);
+                            createGenPlaceEgg(material1, 0, bundle, player);
                             ItemStack item = GenPlaceEgg;
                             player.getInventory().setItem(i, item);
                             break;
@@ -168,13 +176,13 @@ public class getSpawnGen implements CommandExecutor, TabCompleter {
 
                             if (args[1].toLowerCase().equals("stonelist")) {
                                 material1 = "stoneList";
-                                createGenPlaceEgg(material1, cooldown);
+                                createGenPlaceEgg(material1, cooldown, bundle, player);
                                 ItemStack item = GenPlaceEgg;
                                 player.getInventory().setItem(i, item);
                                 break;
                             } else if (args[1].toLowerCase().equals("woodlist")) {
                                 material1 = "woodList";
-                                createGenPlaceEgg(material1, cooldown);
+                                createGenPlaceEgg(material1, cooldown, bundle, player);
                                 ItemStack item = GenPlaceEgg;
                                 player.getInventory().setItem(i, item);
                                 break;
@@ -188,7 +196,7 @@ public class getSpawnGen implements CommandExecutor, TabCompleter {
                 if (args.length == 1) {
                     if (!(player.getInventory().firstEmpty() <= -1)) {
                         int i = player.getInventory().firstEmpty();
-                        createGenRemoveEgg();
+                        createGenRemoveEgg(bundle);
                         ItemStack item = GenRemoveEgg;
                         player.getInventory().setItem(i, item);
 

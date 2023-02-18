@@ -1,8 +1,8 @@
-package feier68.gen.Commands;
+package net.project.gen.Commands;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import feier68.gen.Main;
+import net.project.gen.Main;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;

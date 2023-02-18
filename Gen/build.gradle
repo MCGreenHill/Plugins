@@ -4,9 +4,32 @@ plugins {
 
 
 
-dependencies {
-    compileOnly 'io.papermc.paper:paper-api:1.19.3-R0.1-SNAPSHOT'
+
+repositories {
+
+    maven {
+
+        name = "Locale-API"
+        url = uri("https://maven.pkg.github.com/Unp1xelt/Locale-API")
+        metadataSources {
+            mavenPom()
+            artifact()
+        }
+        credentials {
+            username = "GigaClubNET"
+            password = "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"
+    }
+    }
+
+
 }
+
+dependencies {
+    compileOnly project(':API')
+    compileOnly 'io.papermc.paper:paper-api:1.19.3-R0.1-SNAPSHOT'
+    compileOnly 'de.unpixelt:locale-api:1.0'
+}
+
 
 
 processResources {

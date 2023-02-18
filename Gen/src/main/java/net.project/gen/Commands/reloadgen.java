@@ -1,9 +1,9 @@
-package feier68.gen.Commands;
+package net.project.gen.Commands;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import feier68.gen.Main;
+import net.project.gen.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

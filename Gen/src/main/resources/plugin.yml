@@ -1,11 +1,14 @@
 name: Gen
 version: '${version}'
-main: feier68.gen.Main
+main: net.project.gen.Main
 api-version: 1.19
 prefix: Gen´s
 load: STARTUP
-authors: [ Feier68 ]
+authors: [ net.project ]
 description: Block Generator plugin
+depend:
+  - BasePlugin
+  - Locale-API
 
 commands:
   placegen:

@@ -1,9 +1,9 @@
-package feier68.gen.Listener;
+package net.project.gen.Listener;
 
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import feier68.gen.Main;
+import net.project.gen.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

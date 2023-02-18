@@ -1,9 +1,10 @@
-package feier68.gen.Listener;
+package net.project.gen.Listener;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import feier68.gen.Commands.getSpawnGen;
-import feier68.gen.Main;
+import net.project.api.ProjectPlayer;
+import net.project.gen.Commands.getSpawnGen;
+import net.project.gen.Main;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,7 +18,9 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Locale;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 
 public class genSpawn implements Listener {
@@ -26,6 +29,11 @@ public class genSpawn implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
+
+        ProjectPlayer player1 = new ProjectPlayer(event.getPlayer());
+        Locale playerLocale = player1.getProjectLocale();
+        ResourceBundle bundle = Main.getMessagesBundle(playerLocale);
+
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (event.getHand() != null && event.getHand().equals(EquipmentSlot.HAND)) {
                 ItemStack item = event.getItem();
@@ -137,7 +145,7 @@ public class genSpawn implements Listener {
                                 player.sendMessage("Remove Gen");
                                 location.getBlock().setType(Material.AIR);
                                 location.getWorld().spawnParticle(Particle.LAVA, location.add(0.5, 0, 0.5), 80);
-                                getSpawnGen.createGenPlaceEgg(gen2.get("material").getAsString(), gen2.get("cooldown").getAsInt());
+                                getSpawnGen.createGenPlaceEgg(gen2.get("material").getAsString(), gen2.get("cooldown").getAsInt(),bundle,player);
                                 Main.objecktList.remove(i);
                                 ItemStack genPlaceEgg = getSpawnGen.GenPlaceEgg;
                                 if (!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {

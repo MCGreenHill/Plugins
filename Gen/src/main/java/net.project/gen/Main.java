@@ -1,14 +1,15 @@
-package feier68.gen;
+package net.project.gen;
 
 
 import com.google.gson.*;
-import feier68.gen.Commands.getSpawnGen;
-import feier68.gen.Commands.placegen;
-import feier68.gen.Commands.reloadgen;
-import feier68.gen.Commands.removegen;
-import feier68.gen.Listener.BlockBreak;
-import feier68.gen.Listener.PistonEvent;
-import feier68.gen.Listener.genSpawn;
+import net.project.gen.Commands.getSpawnGen;
+import net.project.gen.Commands.placegen;
+import net.project.gen.Commands.reloadgen;
+import net.project.gen.Commands.removegen;
+import net.project.gen.Listener.BlockBreak;
+import net.project.gen.Listener.PistonEvent;
+import net.project.gen.Listener.genSpawn;
+import net.project.api.ProjectPlugin;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -21,7 +22,7 @@ import java.nio.file.Paths;
 import java.util.Objects;
 
 
-public final class Main extends JavaPlugin implements Listener {
+public final class Main extends ProjectPlugin implements Listener {
 
     public static JsonArray objecktList = new JsonArray();
     private static Main plugin;
