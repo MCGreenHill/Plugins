@@ -4,14 +4,12 @@ package net.project.gen;
 import com.google.gson.*;
 import net.project.gen.Commands.getSpawnGen;
 import net.project.gen.Commands.placegen;
-import net.project.gen.Commands.reloadgen;
 import net.project.gen.Commands.removegen;
 import net.project.gen.Listener.BlockBreak;
 import net.project.gen.Listener.PistonEvent;
 import net.project.gen.Listener.genSpawn;
 import net.project.api.ProjectPlugin;
 import org.bukkit.event.Listener;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.FileReader;
@@ -69,7 +67,6 @@ public final class Main extends ProjectPlugin implements Listener {
         Objects.requireNonNull(getCommand("removegen")).setTabCompleter(new removegen());
         Objects.requireNonNull(getCommand("genitem")).setExecutor(new getSpawnGen());
         Objects.requireNonNull(getCommand("genitem")).setTabCompleter(new getSpawnGen());
-        Objects.requireNonNull(getCommand("reloadgen")).setExecutor(new reloadgen());
 
         this.getServer().getPluginManager().registerEvents(new BlockBreak(), this);
         this.getServer().getPluginManager().registerEvents(new genSpawn(), this);

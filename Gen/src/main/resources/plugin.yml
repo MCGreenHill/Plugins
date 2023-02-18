@@ -20,6 +20,3 @@ commands:
   genitem:
     description: /genitem Block/List/Remove
     permission: "gen.item"
-  reloadgen:
-    description: läde die gen list neu
-    permission: "gen.reload"
