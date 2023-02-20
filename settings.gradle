@@ -1,3 +1,3 @@
 rootProject.name = 'plugins'
 
-include 'API', 'Base', 'SkyCoinSystem', 'Gen'
+include 'API', 'BanSystem', 'Base', 'SkyCoinSystem', 'Gen'

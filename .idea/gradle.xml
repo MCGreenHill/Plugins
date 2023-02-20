@@ -13,6 +13,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/API" />
+            <option value="$PROJECT_DIR$/BanSystem" />
             <option value="$PROJECT_DIR$/Base" />
             <option value="$PROJECT_DIR$/Gen" />
             <option value="$PROJECT_DIR$/SkyCoinSystem" />
