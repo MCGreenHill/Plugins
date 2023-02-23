@@ -1,0 +1,38 @@
+plugins {
+    id 'com.github.johnrengelman.shadow'
+    id 'eu.cloudnetservice.juppiter' version '0.2.0'
+}
+
+moduleJson {
+    author = "GigaClub"
+    name = "BanSystem"
+    main = 'net.project.bansystem.BanSystem'
+    group = 'net.project'
+}
+
+repositories {
+    maven {
+        url 'https://jitpack.io/'
+    }
+    maven {
+        url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+    }
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+}
+
+dependencies {
+    compileOnly project(':API')
+    implementation platform('eu.cloudnetservice.cloudnet:bom:4.0.0-RC7-SNAPSHOT')
+    implementation 'com.github.cloudnetservice.cloud-command-framework:cloud-core:main-SNAPSHOT'
+    compileOnly 'eu.cloudnetservice.cloudnet:driver'
+    compileOnly 'eu.cloudnetservice.cloudnet:platform-inject-api'
+    compileOnly 'eu.cloudnetservice.cloudnet:node'
+    compileOnly 'io.github.waterfallmc:waterfall-api:1.19-R0.1-SNAPSHOT'
+    annotationProcessor 'eu.cloudnetservice.cloudnet:platform-inject-processor:4.0.0-RC7-SNAPSHOT'
+}
+
+build {
+    dependsOn(shadowJar)
+}
