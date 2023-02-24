@@ -67,7 +67,7 @@ public class BlockBreak implements Listener {
 
                     for (int i1 = 0; i1 < genList.length; i1++) {
 
-                        if (gen.get("material").getAsString().equalsIgnoreCase(genList[i1].toString())) {
+                        if (gen.get("material").getAsString().equalsIgnoreCase(genList[i1])) {
                             String listName = genList[i1];
                             Random random = new Random();
                             if (listName.equalsIgnoreCase("stoneList")) {
