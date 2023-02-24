@@ -83,11 +83,9 @@ public class removegen implements CommandExecutor, TabCompleter {
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         List<String> completions = new ArrayList<>();
 
-        if (!(sender instanceof Player)) {
+        if (!(sender instanceof Player player)) {
             return completions;
         }
-
-        Player player = (Player) sender;
 
         int x = player.getLocation().getBlockX();
         int y = checkCoords(player.getLocation().getBlockY());
