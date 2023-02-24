@@ -45,7 +45,7 @@ public class getSpawnGen implements CommandExecutor, TabCompleter {
         item.setItemMeta(meta);
         PersistentDataContainer data = meta.getPersistentDataContainer();
         data.set(new NamespacedKey(Main.getPlugin(), "cooldown"), PersistentDataType.INTEGER, cooldown);
-        data.set(new NamespacedKey(Main.getPlugin(), "Material"), PersistentDataType.STRING, material);
+        data.set(new NamespacedKey(Main.getPlugin(), "Material"), PersistentDataType.STRING, String.valueOf(material));
         data.set(new NamespacedKey(Main.getPlugin(), "Gen"), PersistentDataType.INTEGER, 1);
         item.setItemMeta(meta);
         GenPlaceEgg = item;
@@ -144,13 +144,13 @@ public class getSpawnGen implements CommandExecutor, TabCompleter {
                     if (!(player.getInventory().firstEmpty() <= -1)) {
                         int i = player.getInventory().firstEmpty();
 
-                        if (args[1].equalsIgnoreCase("stonelist")) {
+                        if (args[1].toLowerCase().equals("stonelist")) {
                             material1 = "stoneList";
                             createGenPlaceEgg(material1, 0, bundle, player);
                             ItemStack item = GenPlaceEgg;
                             player.getInventory().setItem(i, item);
                             break;
-                        } else if (args[1].equalsIgnoreCase("woodlist")) {
+                        } else if (args[1].toLowerCase().equals("woodlist")) {
                             material1 = "woodList";
                             createGenPlaceEgg(material1, 0, bundle, player);
                             ItemStack item = GenPlaceEgg;
@@ -174,13 +174,13 @@ public class getSpawnGen implements CommandExecutor, TabCompleter {
                         if (!(player.getInventory().firstEmpty() <= -1)) {
                             int i = player.getInventory().firstEmpty();
 
-                            if (args[1].equalsIgnoreCase("stonelist")) {
+                            if (args[1].toLowerCase().equals("stonelist")) {
                                 material1 = "stoneList";
                                 createGenPlaceEgg(material1, cooldown, bundle, player);
                                 ItemStack item = GenPlaceEgg;
                                 player.getInventory().setItem(i, item);
                                 break;
-                            } else if (args[1].equalsIgnoreCase("woodlist")) {
+                            } else if (args[1].toLowerCase().equals("woodlist")) {
                                 material1 = "woodList";
                                 createGenPlaceEgg(material1, cooldown, bundle, player);
                                 ItemStack item = GenPlaceEgg;
