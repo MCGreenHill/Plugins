@@ -1,0 +1,22 @@
+name: ShopSystem
+version: '${version}'
+main: net.project.Main
+api-version: 1.19
+prefix: ShopSystem
+authors: [ Feier68 ]
+depend:
+  - HeadDatabase
+  - BasePlugin
+  - Vault
+  - ProtocolLib
+commands:
+  shop:
+    usage: "/Shop"
+    description: "Shop"
+    permission: "shop.open"
+  adshopitem:
+    usage: "/adshopitem <price> <Size>"
+    description: "set item for the shop"
+    permission: "shop.create.item"
+
+
