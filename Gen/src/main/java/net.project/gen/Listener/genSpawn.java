@@ -30,9 +30,7 @@ public class genSpawn implements Listener {
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
 
-        ProjectPlayer player1 = new ProjectPlayer(event.getPlayer());
-        Locale playerLocale = player1.getProjectLocale();
-        ResourceBundle bundle = Main.getMessagesBundle(playerLocale);
+
 
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (event.getHand() != null && event.getHand().equals(EquipmentSlot.HAND)) {
@@ -127,6 +125,10 @@ public class genSpawn implements Listener {
 
                         event.setCancelled(true);
 
+                        ProjectPlayer player1 = new ProjectPlayer(event.getPlayer());
+                        Locale playerLocale = player1.getProjectLocale();
+                        ResourceBundle bundle = Main.getMessagesBundle(playerLocale);
+
                         Player player = event.getPlayer();
                         Location location = event.getClickedBlock().getLocation();
                         int x = location.getBlockX();
@@ -142,6 +144,7 @@ public class genSpawn implements Listener {
                                         return;
                                     }
                                 }
+
                                 player.sendMessage("Remove Gen");
                                 location.getBlock().setType(Material.AIR);
                                 location.getWorld().spawnParticle(Particle.LAVA, location.add(0.5, 0, 0.5), 80);

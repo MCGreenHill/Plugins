@@ -1,5 +1,8 @@
 package net.project.base.commands;
 
+import net.kyori.adventure.audience.Audience;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.project.api.ProjectPlayer;
 import net.project.base.Base;
 import org.bukkit.command.Command;
@@ -27,7 +30,7 @@ public class Lang implements CommandExecutor, TabCompleter {
     public Lang() {
         possibleLanguageList = Arrays.asList("de", "en");
     }
-
+    MiniMessage mm = MiniMessage.miniMessage();
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (!(sender instanceof Player bukkitPlayer)) {
@@ -38,7 +41,9 @@ public class Lang implements CommandExecutor, TabCompleter {
         Locale playerLocale = player.getProjectLocale();
         ResourceBundle bundle = Base.getMessagesBundle(playerLocale);
         if (args.length == 0) {
-            sender.sendMessage(String.format(bundle.getString("command.lang"), playerLocale));
+            Audience player1 = (Audience) sender;
+            Component pars = mm.deserialize(String.format(bundle.getString("command.lang"), playerLocale));
+            player1.sendMessage(pars);
             return true;
         }
         String selectedLang = args[0];
